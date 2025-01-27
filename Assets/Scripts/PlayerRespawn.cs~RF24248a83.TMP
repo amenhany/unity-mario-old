@@ -1,0 +1,42 @@
+using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class PlayerRespawn : MonoBehaviour
+{
+	[SerializeField] private AudioManager audioManager;
+	public GameObject playerDeathPrefab;
+	Transform spawnPoint;
+	Transform enemy;
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.gameObject.CompareTag("Void")) {
+			Death();
+		}
+
+		if (collision.gameObject.CompareTag("EnemyHead")) {
+			Destroy(collision.gameObject);
+		}
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.CompareTag("Enemy")) {
+			Death();
+		}
+	}
+
+	void Update() {
+		if (Input.GetButtonDown("Reset")) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	}
+
+	void Death() {
+		spawnPoint = transform;
+		Destroy(gameObject);
+		Instantiate(playerDeathPrefab, spawnPoint.position, Quaternion.identity);
+
+		audioManager.Stop("Main Theme");
+		audioManager.Play("Player Death");
+	}
+}
