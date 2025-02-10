@@ -1,6 +1,6 @@
 # Mario Game Demo 🍄
 
-This game demo, made using the Unity Game Engine, was made entirely from scratch. It tries to mimick Super Mario World with some elements from other Mario games and physics from Celeste. It includes a very easy level editor, with various tiles, collision boxes, parallax background, and more!
+This game demo, solo developed using the Unity Game Engine, was made entirely from scratch. It tries to mimic Super Mario World with some elements from other Mario games and physics from Celeste. It includes a very easy level editor, with various tiles, collision boxes, parallax background, and more!
 
 ## Features 💥
 - Lives and Respawning
